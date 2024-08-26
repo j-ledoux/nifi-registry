@@ -1,4 +1,5 @@
 {
+  "externalControllerServices" : { },
   "flow" : {
     "createdTimestamp" : 1724681947728,
     "description" : "",
@@ -7,5 +8,437 @@
     "name" : "Recursive UNZIP",
     "versionCount" : 0
   },
-  "latest" : false
+  "flowContents" : {
+    "comments" : "",
+    "componentType" : "PROCESS_GROUP",
+    "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ {
+        "x" : 24.0,
+        "y" : 24.0
+      } ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "35be4084-6d24-359f-9ea7-06b0b90d9d74",
+        "name" : "Is a Zip File ?",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "8b26711d-6a23-36e8-a414-a03eac2a9ace",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "7de6f2c3-6272-3e1f-a786-a10710c1ac45",
+        "name" : "UnpackContent",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ {
+        "x" : 24.0,
+        "y" : -208.0
+      } ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "7de6f2c3-6272-3e1f-a786-a10710c1ac45",
+        "name" : "UnpackContent",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ef27ab52-61b2-3ea4-86ce-c6749d88972b",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "zipfile" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "35be4084-6d24-359f-9ea7-06b0b90d9d74",
+        "name" : "Is a Zip File ?",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "a85f4189-b4d8-3a50-bfea-37f604fe9aeb",
+        "name" : "LogMessageUnzipError",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "95d8dcce-723d-3504-88f2-98e8e9a78cf6",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "7de6f2c3-6272-3e1f-a786-a10710c1ac45",
+        "name" : "UnpackContent",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "flow-contents-group",
+        "id" : "bef2f69d-2dba-315a-b7a0-1c9472a3fa0c",
+        "name" : "output unpacked files",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "e2ddc5bd-fc6b-3448-8027-ba9ee6cb7ac2",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "35be4084-6d24-359f-9ea7-06b0b90d9d74",
+        "name" : "Is a Zip File ?",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "35be4084-6d24-359f-9ea7-06b0b90d9d74",
+        "name" : "Is a Zip File ?",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "52d5b45a-444f-3501-a25c-2c33bf7c0059",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "" ],
+      "source" : {
+        "groupId" : "flow-contents-group",
+        "id" : "21c8bd5d-b700-35f7-9dbb-d4a2c9353063",
+        "name" : "input zip file",
+        "type" : "INPUT_PORT"
+      },
+      "zIndex" : 0
+    } ],
+    "controllerServices" : [ ],
+    "defaultBackPressureDataSizeThreshold" : "1 GB",
+    "defaultBackPressureObjectThreshold" : 10000,
+    "defaultFlowFileExpiration" : "0 sec",
+    "executionEngine" : "INHERITED",
+    "externalControllerServiceReferences" : { },
+    "flowFileConcurrency" : "UNBOUNDED",
+    "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
+    "funnels" : [ ],
+    "identifier" : "flow-contents-group",
+    "inputPorts" : [ {
+      "allowRemoteAccess" : false,
+      "componentType" : "INPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "21c8bd5d-b700-35f7-9dbb-d4a2c9353063",
+      "name" : "input zip file",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 176.0,
+        "y" : -320.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "INPUT_PORT"
+    } ],
+    "labels" : [ {
+      "componentType" : "LABEL",
+      "groupIdentifier" : "flow-contents-group",
+      "height" : 144.0,
+      "identifier" : "f0a8c613-be86-358b-a4c0-37becb94d8a7",
+      "label" : "ℹ️ Il peut y avoir plusieurs regroupements en amont, ce qui \nsignifie qu'une archive ZIP peut contenir d'autres archives ZIP.\n\nCette boucle permet de tout décompresser de façon récursive, \ntant que l'on trouve des fichiers ZIP (connexion \"zipfile\").\n\nQuand tout a été décompressé, on sort de la boucle par la \nconnexion \"unmatched\"",
+      "position" : {
+        "x" : -320.0,
+        "y" : -416.0
+      },
+      "style" : {
+        "background-color" : "#d6e2ff",
+        "font-size" : "14px"
+      },
+      "width" : 448.0,
+      "zIndex" : 0
+    }, {
+      "componentType" : "LABEL",
+      "groupIdentifier" : "flow-contents-group",
+      "height" : 456.0,
+      "identifier" : "78d5d9dc-48a5-32e2-87bb-091a8aadb5c7",
+      "label" : "Processus de décompression (UNZIP) récursif",
+      "position" : {
+        "x" : -440.0,
+        "y" : -240.0
+      },
+      "style" : {
+        "font-size" : "14px"
+      },
+      "width" : 920.0,
+      "zIndex" : 0
+    } ],
+    "maxConcurrentTasks" : 1,
+    "name" : "Recursive UNZIP",
+    "outputPorts" : [ {
+      "allowRemoteAccess" : false,
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "bef2f69d-2dba-315a-b7a0-1c9472a3fa0c",
+      "name" : "output unpacked files",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : 760.0,
+        "y" : -120.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "OUTPUT_PORT"
+    } ],
+    "position" : {
+      "x" : 0.0,
+      "y" : 0.0
+    },
+    "processGroups" : [ ],
+    "processors" : [ {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.0.0-M4"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a85f4189-b4d8-3a50-bfea-37f604fe9aeb",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessageUnzipError",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -432.0,
+        "y" : 80.0
+      },
+      "properties" : {
+        "log-message" : "Error when unzipping ${absolute.path}/${filename}",
+        "log-level" : "error"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "original" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.0.0-M4"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "7de6f2c3-6272-3e1f-a786-a10710c1ac45",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "UnpackContent",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -432.0,
+        "y" : -160.0
+      },
+      "properties" : {
+        "Packaging Format" : "zip",
+        "allow-stored-entries-wdd" : "false",
+        "Filename Character Set" : "UTF-8",
+        "File Filter" : ".*"
+      },
+      "propertyDescriptors" : {
+        "Packaging Format" : {
+          "displayName" : "Packaging Format",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Packaging Format",
+          "sensitive" : false
+        },
+        "allow-stored-entries-wdd" : {
+          "displayName" : "Allow Stored Entries With Data Descriptor",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "allow-stored-entries-wdd",
+          "sensitive" : false
+        },
+        "Filename Character Set" : {
+          "displayName" : "Filename Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Filename Character Set",
+          "sensitive" : false
+        },
+        "File Filter" : {
+          "displayName" : "File Filter",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "File Filter",
+          "sensitive" : false
+        },
+        "Password" : {
+          "displayName" : "Password",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Password",
+          "sensitive" : true
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.UnpackContent",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.0.0-M4"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "35be4084-6d24-359f-9ea7-06b0b90d9d74",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Is a Zip File ?",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 118.99990534168535,
+        "y" : -158.99998399449703
+      },
+      "properties" : {
+        "zipfile" : "${filename:endsWith(\".zip\")}",
+        "Routing Strategy" : "Route to Property name"
+      },
+      "propertyDescriptors" : {
+        "zipfile" : {
+          "displayName" : "zipfile",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "zipfile",
+          "sensitive" : false
+        },
+        "Routing Strategy" : {
+          "displayName" : "Routing Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Routing Strategy",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
+      "yieldDuration" : "1 sec"
+    } ],
+    "remoteProcessGroups" : [ ],
+    "scheduledState" : "ENABLED",
+    "statelessFlowTimeout" : "1 min"
+  },
+  "flowEncodingVersion" : "1.0",
+  "latest" : false,
+  "parameterContexts" : { },
+  "parameterProviders" : { },
+  "snapshotMetadata" : {
+    "flowIdentifier" : "Recursive-UNZIP",
+    "timestamp" : 0
+  }
 }
